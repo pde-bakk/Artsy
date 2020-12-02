@@ -14,11 +14,12 @@ import sys
 from PIL import Image
 from Terminal import get_terminal_size
 
-def GenerateASCII(img):
+
+def generate_ascii(img):
 	# img = Image.open(image_path)
 
 	width, height = img.size
-	aspect_ratio = height/width
+	aspect_ratio = height / width
 	new_width, new_height = get_terminal_size()
 	# new_height = aspect_ratio * new_width * 0.55
 	img = img.resize((new_width, int(new_height)))
@@ -31,9 +32,9 @@ def GenerateASCII(img):
 	pixels = img.getdata()
 
 	# replace each pixel with a character from array
-	chars = [".",":","!","*","%","$","@","&","#","S","B"]
+	chars = [".", ":", "!", "*", "%", "$", "@", "&", "#", "S", "B"]
 	# chars = ["B","S","#","&","@","$","%","*","!",":","."]
-	new_pixels = [chars[pixel//25] for pixel in pixels]
+	new_pixels = [chars[pixel // 25] for pixel in pixels]
 	new_pixels = ''.join(new_pixels)
 
 	# split string of chars into multiple strings of length equal to new width and create a list
@@ -42,6 +43,6 @@ def GenerateASCII(img):
 	ascii_image = "\n".join(ascii_image)
 	print(ascii_image)
 
-	# write to a text file.
-	# with open("ascii_image.txt", "w") as f:
-	# 	f.write(ascii_image)
+# write to a text file.
+# with open("ascii_image.txt", "w") as f:
+# 	f.write(ascii_image)
