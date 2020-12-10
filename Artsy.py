@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
@@ -29,7 +30,7 @@ if len(sys.argv) >= 2:
     else:
         im = Image.open("imgs/monkaSTEER.gif")
 else:
-    im = Image.open("imgs/monkaSTEER.gif")
+    im = Image.open("imgs/thor.gif")
 
 print(im.n_frames)
 
@@ -37,4 +38,4 @@ while True:
     for frame in range(im.n_frames):
         im.seek(frame)
         generate_ascii(im)
-        time.sleep(2.5 / im.n_frames)
+        time.sleep(4.0 / im.n_frames)
