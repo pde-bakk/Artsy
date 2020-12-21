@@ -10,28 +10,37 @@
 #                                                                              #
 # **************************************************************************** #
 
-import sys, time, random
+import sys, time, random, os
 from PIL import Image
 from GenerateASCII import GenerateASCII
 
 if len(sys.argv) >= 2:
-	if sys.argv[1] == "flex":
-		im = Image.open("imgs/flex.gif")
-	elif sys.argv[1] == "homie":
+	arg =  sys.argv[1]
+	if arg == "flex":
+		imageName = "flex.gif"
+	elif arg == "homie":
 		if random.randint(0, 4) == 1:
-			im = Image.open("imgs/christmashomie.gif")
+			imageName = "christmashomie.gif"
 		else:
-			im = Image.open("imgs/kissahomie.gif")
+			imageName = "kissahomie.gif"
+	elif arg == "melt":
+		imageName = "melt.gif"
+	elif arg == "tunnel":
+		imageName = "tunnel.gif"
+	elif arg == "dancing":
+		imageName = "dancing.gif"
+	elif arg == "codywave":
+		imageName = "codywave.gif"
 	else:
-		im = Image.open("imgs/monkaSTEER.gif")
+		imageName = "monkaSTEER.gif"
 else:
-	im = Image.open("imgs/monkaSTEER.gif")
+	imageName = "monkaSTEER.gif"
 
-print(im.n_frames)
+im = Image.open("imgs/" + imageName)
+# print(im.n_frames)
 
 while True:
 	for frame in range(im.n_frames):
 		im.seek(frame)
 		GenerateASCII(im)
 		time.sleep( 2.5 / im.n_frames )
-
