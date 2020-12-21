@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
@@ -12,7 +13,8 @@
 
 import sys, time, random, os
 from PIL import Image
-from GenerateASCII import GenerateASCII
+
+from GenerateASCII import generate_ascii
 
 if len(sys.argv) >= 2:
 	arg =  sys.argv[1]
@@ -34,13 +36,13 @@ if len(sys.argv) >= 2:
 	else:
 		imageName = "monkaSTEER.gif"
 else:
-	imageName = "monkaSTEER.gif"
+	imageName = "thor.gif"
 
 im = Image.open("imgs/" + imageName)
 # print(im.n_frames)
 
 while True:
-	for frame in range(im.n_frames):
-		im.seek(frame)
-		GenerateASCII(im)
-		time.sleep( 2.5 / im.n_frames )
+    for frame in range(im.n_frames):
+        im.seek(frame)
+        generate_ascii(im)
+        time.sleep(4.0 / im.n_frames)

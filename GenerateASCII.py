@@ -14,11 +14,12 @@ import sys
 from PIL import Image
 from Terminal import get_terminal_size
 
-def GenerateASCII(img):
+
+def generate_ascii(img):
 	# img = Image.open(image_path)
 
 	width, height = img.size
-	aspect_ratio = height/width
+	aspect_ratio = height / width
 	new_width, new_height = get_terminal_size()
 	# new_height = aspect_ratio * new_width * 0.55
 	img = img.resize((new_width, int(new_height)))
