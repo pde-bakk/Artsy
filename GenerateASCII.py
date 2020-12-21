@@ -41,7 +41,6 @@ def generate_ascii(img):
 	ascii_image = [new_pixels[index:index + new_width] for index in range(0, new_pixels_count, new_width)]
 	ascii_image = "\n".join(ascii_image)
 	print(ascii_image)
-
 	# write to a text file.
 	# with open("ascii_image.txt", "w") as f:
 	# 	f.write(ascii_image)
