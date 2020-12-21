@@ -17,24 +17,7 @@ from PIL import Image
 from GenerateASCII import generate_ascii
 
 if len(sys.argv) >= 2:
-	arg =  sys.argv[1]
-	if arg == "flex":
-		imageName = "flex.gif"
-	elif arg == "homie":
-		if random.randint(0, 4) == 1:
-			imageName = "christmashomie.gif"
-		else:
-			imageName = "kissahomie.gif"
-	elif arg == "melt":
-		imageName = "melt.gif"
-	elif arg == "tunnel":
-		imageName = "tunnel.gif"
-	elif arg == "dancing":
-		imageName = "dancing.gif"
-	elif arg == "codywave":
-		imageName = "codywave.gif"
-	else:
-		imageName = "monkaSTEER.gif"
+	imageName = sys.argv[1] + ".gif"
 else:
 	imageName = "thor.gif"
 
