@@ -17,12 +17,18 @@ from PIL import Image
 from GenerateASCII import generate_ascii
 
 if len(sys.argv) >= 2:
-	imageName = sys.argv[1] + ".gif"
+    imageName = sys.argv[1] + ".gif"
 else:
-	imageName = "thor.gif"
+    imageName = "thor.gif"
 
-im = Image.open("imgs/" + imageName)
-# print(im.n_frames)
+try:
+    if '../' in imageName:
+        print('Please only supply images in the "imgs/" folder')
+        raise FileNotFoundError
+    im = Image.open("imgs/" + imageName)
+except FileNotFoundError:
+    print(f'Problem opening {"imgs/" + imageName}.\nPlease check your path again.')
+    exit(1)
 
 while True:
     for frame in range(im.n_frames):
