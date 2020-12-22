@@ -32,6 +32,11 @@ except FileNotFoundError:
 
 while True:
     for frame in range(im.n_frames):
-        im.seek(frame)
-        generate_ascii(im)
-        time.sleep(4.0 / im.n_frames)
+        try:
+            im.seek(frame)
+            generate_ascii(im)
+            time.sleep(4.0 / im.n_frames)
+        except KeyboardInterrupt:
+            exit(0)
+            # Don't show the Traceback
+            pass
